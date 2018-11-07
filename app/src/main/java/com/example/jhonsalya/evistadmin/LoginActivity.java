@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.jhonsalya.evistadmin.Model.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.FirebaseNetworkException;
@@ -85,12 +86,17 @@ public class LoginActivity extends AppCompatActivity {
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                if(dataSnapshot.hasChild(user_id)){
-                    Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
-                    Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
-                    loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(loginIntent);
+                User user = dataSnapshot.child(user_id).getValue(User.class);
+                if(user.getStatus() == "1"){
+                    if(dataSnapshot.hasChild(user_id)){
+                        Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+                        Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
+                        loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(loginIntent);
+                    }
                 }
+                else
+                    Toast.makeText(LoginActivity.this, "You Are Not Admin", Toast.LENGTH_SHORT).show();
             }
 
             @Override
