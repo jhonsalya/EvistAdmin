@@ -95,7 +95,7 @@ public class ListUserActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
-                            Toast.makeText(ListUserActivity.this, "User Blocked Yay", Toast.LENGTH_LONG).show();
+                            Toast.makeText(ListUserActivity.this, "User Blocked", Toast.LENGTH_LONG).show();
                         }
                     }
                 });

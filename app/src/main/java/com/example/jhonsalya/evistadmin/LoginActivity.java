@@ -87,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.child(user_id).getValue(User.class);
-                if(user.getStatus() == "1"){
+                if(user.getStatus().equals("1")){
                     if(dataSnapshot.hasChild(user_id)){
                         Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
                         Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
