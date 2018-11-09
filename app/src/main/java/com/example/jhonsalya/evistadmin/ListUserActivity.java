@@ -84,7 +84,7 @@ public class ListUserActivity extends AppCompatActivity {
     }
 
     public void blockUser(String post_key){
-        final String statusValue = "0";
+        final String statusValue = "2";
 
         final DatabaseReference newPost = user.child(post_key);
 
