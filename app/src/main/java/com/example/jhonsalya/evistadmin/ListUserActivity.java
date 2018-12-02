@@ -1,7 +1,9 @@
 package com.example.jhonsalya.evistadmin;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -74,7 +76,24 @@ public class ListUserActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         //Toast.makeText(ListUserActivity.this, "User Blocked Not Yet", Toast.LENGTH_SHORT).show();
-                        blockUser(post_key);
+                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(ListUserActivity.this);
+                        alertDialog.setMessage("Are You Sure Want to Delete?");
+                        alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
+
+                        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                blockUser(post_key);
+                            }
+                        });
+
+                        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(ListUserActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        alertDialog.show();
                     }
                 });
             }
