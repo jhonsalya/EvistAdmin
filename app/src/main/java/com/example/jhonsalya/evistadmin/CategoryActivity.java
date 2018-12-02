@@ -66,11 +66,11 @@ public class CategoryActivity extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
 //                        //get categoryID and send to new activity
-//                        Intent eventList = new Intent(CategoryActivity.this, EventByCategoryActivity.class);
+                        Intent eventList = new Intent(CategoryActivity.this, EventByCategoryActivity.class);
 //                        //because categoryID is key, so we just get key of this item
 //                        //eventList.putExtra("CategoryId", adapter.getRef(position).getKey());
-//                        eventList.putExtra("CategoryId", post_key);
-//                        startActivity(eventList);
+                        eventList.putExtra("CategoryId", post_key);
+                        startActivity(eventList);
                         Toast.makeText(CategoryActivity.this, post_key, Toast.LENGTH_SHORT).show();
                     }
                 });

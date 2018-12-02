@@ -24,7 +24,8 @@
         <activity android:name=".EditCategoryActivity" />
         <activity android:name=".ListUserActivity" />
         <activity android:name=".EventDetailActivity" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".EventByCategoryActivity"></activity>
     </application>
 
 </manifest>
