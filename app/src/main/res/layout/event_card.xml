@@ -26,7 +26,7 @@
 
             <TextView
                 android:id="@+id/title"
-                android:text="Title"
+                android:text="Bakso Festival Yang Sangat Menarique"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/thumbnail"
@@ -42,7 +42,7 @@
 
             <TextView
                 android:id="@+id/count"
-                android:text="location"
+                android:text="Denpasar Selatan Sanaan Lagi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
@@ -52,8 +52,18 @@
                 android:textSize="12dp"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:maxWidth="130dp"
-                />
+                android:maxWidth="130dp"/>
+
+            <ImageView
+                android:id="@+id/overflow"
+                android:layout_width="15dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/thumbnail"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="5dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_delete_forever_grey_24dp"/>
 
         </RelativeLayout>
 

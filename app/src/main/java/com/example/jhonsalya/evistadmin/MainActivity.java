@@ -1,11 +1,13 @@
 package com.example.jhonsalya.evistadmin;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Rect;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -14,9 +16,11 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import com.example.jhonsalya.evistadmin.Model.Event;
@@ -176,7 +180,7 @@ public class MainActivity extends AppCompatActivity
                 //mDatabase.orderByChild(mainId)
         ) {
             @Override
-            protected void populateViewHolder(EventViewHolder viewHolder, Event model, int position) {
+            protected void populateViewHolder(final EventViewHolder viewHolder, Event model, int position) {
                 final String post_key = getRef(position).getKey().toString();
 
                 viewHolder.setTitle(model.getTitle());
@@ -191,6 +195,30 @@ public class MainActivity extends AppCompatActivity
                         eventDetailActivity.putExtra("PostId", post_key);
                         Toast.makeText(MainActivity.this, post_key, Toast.LENGTH_SHORT).show();
                         startActivity(eventDetailActivity);
+                    }
+                });
+                viewHolder.overflow.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        AlertDialog.Builder alertDialog = new AlertDialog.Builder(MainActivity.this);
+                        alertDialog.setMessage("Are You Sure Want to Delete?");
+                        alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
+
+                        alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(MainActivity.this, "Event Deleted", Toast.LENGTH_SHORT).show();
+                                mDatabase.child(post_key).removeValue();
+                            }
+                        });
+
+                        alertDialog.setNegativeButton("NO", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                Toast.makeText(MainActivity.this, "Canceled", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                        alertDialog.show();
                     }
                 });
             }
