@@ -95,8 +95,10 @@ public class LoginActivity extends AppCompatActivity {
                         startActivity(loginIntent);
                     }
                 }
-                else
+                else{
                     Toast.makeText(LoginActivity.this, "You Are Not Admin", Toast.LENGTH_SHORT).show();
+                    mAuth.signOut();
+                }
             }
 
             @Override
@@ -110,5 +112,10 @@ public class LoginActivity extends AppCompatActivity {
 //        Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
 //        registerIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 //        startActivity(registerIntent);
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
     }
 }
