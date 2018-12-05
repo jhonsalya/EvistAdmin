@@ -108,12 +108,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    public void registerButtonClicked(View view){
-//        Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
-//        registerIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//        startActivity(registerIntent);
-    }
-
     @Override
     public void onBackPressed() {
         super.onBackPressed();

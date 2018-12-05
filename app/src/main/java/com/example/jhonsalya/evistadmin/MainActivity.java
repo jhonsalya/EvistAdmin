@@ -199,7 +199,7 @@ public class MainActivity extends AppCompatActivity
                     public void onClick(View view) {
                         Intent eventDetailActivity = new Intent(MainActivity.this, EventDetailActivity.class);
                         eventDetailActivity.putExtra("PostId", post_key);
-                        Toast.makeText(MainActivity.this, post_key, Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, post_key, Toast.LENGTH_SHORT).show();
                         startActivity(eventDetailActivity);
                     }
                 });
