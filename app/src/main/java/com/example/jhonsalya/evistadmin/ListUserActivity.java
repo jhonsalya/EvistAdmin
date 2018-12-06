@@ -78,7 +78,7 @@ public class ListUserActivity extends AppCompatActivity {
                     public void onClick(View view) {
                         //Toast.makeText(ListUserActivity.this, "User Blocked Not Yet", Toast.LENGTH_SHORT).show();
                         AlertDialog.Builder alertDialog = new AlertDialog.Builder(ListUserActivity.this);
-                        alertDialog.setMessage("Are You Sure Want to Delete?");
+                        alertDialog.setMessage("Block This User?");
                         alertDialog.setIcon(R.drawable.ic_shopping_cart_black_24dp);
 
                         alertDialog.setPositiveButton("YES", new DialogInterface.OnClickListener() {
