@@ -44,6 +44,28 @@
                         android:text="gmail@cokde.com"
                         android:textSize="17dp"
                         />
+
+                    <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/user_reported"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Reported : "
+                            />
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:id="@+id/user_reported_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            />
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout

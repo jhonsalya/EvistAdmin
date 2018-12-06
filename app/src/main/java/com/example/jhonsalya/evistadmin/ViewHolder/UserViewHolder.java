@@ -29,6 +29,11 @@ public class UserViewHolder extends RecyclerView.ViewHolder{
         post_desc.setText(email);
     }
 
+    public void setReported(String reported){
+        TextView post_report = (TextView) mView.findViewById(R.id.user_reported_value);
+        post_report.setText(reported);
+    }
+
 //    public void setImage(Context ctx, String image){
 //        ImageView post_image = (ImageView) mView.findViewById(R.id.block);
 //        Picasso.with(ctx).load(image).into(post_image);

@@ -1,17 +1,18 @@
 package com.example.jhonsalya.evistadmin.Model;
 
 public class User {
-    private String name, email, password, phone, status;
+    private String name, email, password, phone, status, reported;
 
     public User() {
     }
 
-    public User(String name, String email, String password, String phone, String status) {
+    public User(String name, String email, String password, String phone, String status, String reported) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.status = status;
+        this.reported = reported;
     }
 
     public String getName() {
@@ -52,5 +53,13 @@ public class User {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getReported() {
+        return reported;
+    }
+
+    public void setReported(String reported) {
+        this.reported = reported;
     }
 }

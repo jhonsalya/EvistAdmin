@@ -70,6 +70,7 @@ public class ListUserActivity extends AppCompatActivity {
                 final String post_key = getRef(position).getKey().toString();
                 viewHolder.setName(model.getName());
                 viewHolder.setEmail(model.getEmail());
+                viewHolder.setReported(model.getReported());
                 //viewHolder.setImage(getApplicationContext(),model.getImage());
 
                 viewHolder.overflow.setOnClickListener(new View.OnClickListener() {
