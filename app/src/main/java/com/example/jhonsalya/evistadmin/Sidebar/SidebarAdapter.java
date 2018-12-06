@@ -142,11 +142,13 @@ public class SidebarAdapter extends BaseExpandableListAdapter {
 
         holder.childTitle.setText(childTitle);
 
-        if(groupPosition == 0 && childPosition == 1){
-            holder.childIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_access_time_black_24dp));
+        //category list
+        if(groupPosition == 0 && childPosition == 0){
+            holder.childIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_list_black_24dp));
         }
+        //add category
         if(groupPosition == 0 && childPosition == 1){
-            holder.childIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_access_time_black_24dp));
+            holder.childIcon.setImageDrawable(context.getResources().getDrawable(R.drawable.ic_add_black_24dp));
         }
         //icon for child (sort alphabetically
         if(groupPosition == 1 && childPosition == 0){
