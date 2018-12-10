@@ -103,7 +103,7 @@ public class ListUserActivity extends AppCompatActivity {
         recycler_user.setAdapter(adapter);
     }
 
-    public void blockUser(String post_key){
+    public void blockUser(final String post_key){
         final String statusValue = "2";
 
         final DatabaseReference newPost = user.child(post_key);
@@ -115,10 +115,33 @@ public class ListUserActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful()){
+                            deleteEvent(post_key);
                             Toast.makeText(ListUserActivity.this, "User Blocked", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
+    }
+
+    private void deleteEvent(final String post_key) {
+        final DatabaseReference drTest = FirebaseDatabase.getInstance().getReference().child("EventApp");
+
+        drTest.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot snapshot:dataSnapshot.getChildren()){
+                    if(snapshot.child("uid").getValue(String.class).equals(post_key)){
+                        drTest.child(snapshot.getRef().getKey().toString()).removeValue();
+                        //Toast.makeText(ListUserActivity.this, snapshot.getRef().getKey().toString(), Toast.LENGTH_SHORT).show();
+                    }
+                    //snapshot.child(post_key).getRef().setValue(null);
+                }
             }
 
             @Override

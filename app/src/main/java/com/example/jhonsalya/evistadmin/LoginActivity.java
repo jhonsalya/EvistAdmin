@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity {
                 User user = dataSnapshot.child(user_id).getValue(User.class);
                 if(user.getStatus().equals("1")){
                     if(dataSnapshot.hasChild(user_id)){
-                        Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
                         Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
                         loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(loginIntent);
