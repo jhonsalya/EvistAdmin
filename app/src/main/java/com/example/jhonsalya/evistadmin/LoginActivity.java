@@ -79,6 +79,11 @@ public class LoginActivity extends AppCompatActivity {
                 }
             });
         }
+        else
+        {
+            Toast.makeText(this, "Please Fill All Form", Toast.LENGTH_SHORT).show();
+            mDialog.dismiss();
+        }
     }
 
     public void checkUserExists(){
@@ -89,7 +94,7 @@ public class LoginActivity extends AppCompatActivity {
                 User user = dataSnapshot.child(user_id).getValue(User.class);
                 if(user.getStatus().equals("1")){
                     if(dataSnapshot.hasChild(user_id)){
-                        //Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Login Success", Toast.LENGTH_LONG).show();
                         Intent loginIntent = new Intent(LoginActivity.this, MainActivity.class);
                         loginIntent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(loginIntent);

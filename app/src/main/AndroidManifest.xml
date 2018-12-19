@@ -19,12 +19,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".AddCategoryActivity" />
-        <activity android:name=".CategoryActivity" />
-        <activity android:name=".EditCategoryActivity" />
-        <activity android:name=".ListUserActivity" />
+        <activity
+            android:name=".AddCategoryActivity"
+            android:label="Add Category"
+            />
+        <activity android:name=".CategoryActivity"
+            android:label="Category"
+            />
+        <activity android:name=".EditCategoryActivity"
+            android:label="Edit Category"/>
+        <activity android:name=".ListUserActivity"
+            android:label="User List"/>
         <activity android:name=".EventDetailActivity" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".LoginActivity"
+            android:label="Admin Login"/>
         <activity android:name=".EventByCategoryActivity"></activity>
     </application>
 

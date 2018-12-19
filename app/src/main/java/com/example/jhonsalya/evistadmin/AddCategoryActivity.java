@@ -102,7 +102,7 @@ public class AddCategoryActivity extends AppCompatActivity {
 
         final String titleValue = editName.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(titleValue)){
+        if(!TextUtils.isEmpty(titleValue) && uri != null){
             StorageReference filePath = storageReference.child("EventCategory").child(uri.getLastPathSegment());
             filePath.putFile(uri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                 @Override
@@ -136,6 +136,11 @@ public class AddCategoryActivity extends AppCompatActivity {
 
                 }
             });
+        }
+        else
+        {
+            Toast.makeText(this, "Please Fill All Required Data", Toast.LENGTH_SHORT).show();
+            mDialog.dismiss();
         }
     }
 }
